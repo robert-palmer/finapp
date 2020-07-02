@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserModel {
+  id: Float!
+  email: String!
+  role: UserRole!
+}
+
+enum UserRole {
+  user
+  admin
+}
+
+type RegisterResponse {
+  id: String!
+  email: String!
+}
+
+type LoginResponse {
+  id: String!
+  email: String!
+  accessToken: String!
+}
+
+type Query {
+  test: String!
+  me: RegisterResponse!
+}
+
+type Mutation {
+  createUser(password: String!, email: String!): UserModel!
+  login(input: LoginInput!): LoginResponse!
+  register(input: RegisterInput!): RegisterResponse!
+}
+
+input LoginInput {
+  email: String
+  password: String
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+}
